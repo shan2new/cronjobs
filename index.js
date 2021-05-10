@@ -92,7 +92,7 @@ Update regarding slots availability:
 const runCode = async () => {
     [cowinTodayData, cowinTomorrowData] = await fetchCowinData();
 
-    console.log(formatCowinData(cowinTodayData));
+    // console.log(formatCowinData(cowinTodayData));
 //     sendMessageToTelegramGroup(`sdfsdfsdfsdf
 // sdfsdfsdfsd
 // sdfsdfsdfsd`)
