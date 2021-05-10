@@ -10,6 +10,10 @@ const moment = require("moment-timezone");
 const fetch = require("node-fetch")
 
 const sendMessageToTelegramGroup = (text) => {
+    if(!text) {
+        console.log("No slot found");
+        return;
+    }
     const TELEGRAM_ALERT_GROUP =
     "https://api.telegram.org/bot1721531739:AAFnHqM2JHY6BOlZgiChxC6RjSeVEgiydSc/sendMessage?chat_id=@shan2newCowinAlerts&parse_mode=markdown&text=";
 
@@ -24,8 +28,7 @@ const fetchCowinData = async () => {
       .add(1, "days")
       .tz("Asia/Kolkata")
       .format("DD-MM-YYYY");
-  
-    console.log(currentDate, tomorrowDate);
+
   
     const COWIN_CALENDER_BY_PIN_API =
       "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=201014&date=";
@@ -80,23 +83,19 @@ Update regarding slots availability:
         })
     }
 
-    console.log(cowinTodayData);
+    // console.log(cowinTodayData);
 
     if(foundSlot) {
         return returnText;
     } else {
-        return "No slots till now, sorry!"
+        return null
     } 
 }
 
 const runCode = async () => {
     [cowinTodayData, cowinTomorrowData] = await fetchCowinData();
-
-    // console.log(formatCowinData(cowinTodayData));
-//     sendMessageToTelegramGroup(`sdfsdfsdfsdf
-// sdfsdfsdfsd
-// sdfsdfsdfsd`)
-    sendMessageToTelegramGroup(formatCowinData(cowinTodayData));
+    let sendingText = formatCowinData(cowinTodayData);
+    sendMessageToTelegramGroup(sendingText);
 };
 
 
