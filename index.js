@@ -76,7 +76,7 @@ Update regarding slots availability:
             });
 
             if(total_valid_sessions.length > 0) {
-                returnText += `\n
+                returnText += `
 *${centerDTO.name}* has ${total_valid_sessions.length} slots\n`
                 foundSlot = true;
             }
