@@ -1,0 +1,15 @@
+{
+  "name": "cowinalert",
+  "version": "1.0.0",
+  "description": "Cowin Alerts Initial Version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shan2new",
+  "license": "ISC",
+  "dependencies": {
+    "moment-timezone": "^0.5.33",
+    "node-fetch": "^2.6.1"
+  }
+}
